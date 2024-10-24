@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      hbm2ddl:
+        auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        id.new_generator_mappings: true
+        dialect: org.hibernate.dialect.H2Dialect
+  http:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  datasource:
+    platform: h2
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:ecommerce_product_management;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 123
+    continue-on-error: true
+
+  messages:
+    always-use-message-format: false
+    basename: i18n/messages
+    cache-seconds: -1
+    encoding: UTF-8
+    fallback-to-system-locale: true
+
+h2:
+  console:
+    enabled: true
+    path: /h2-console

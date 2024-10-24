@@ -1,0 +1,4 @@
+package com.example.ecommerceproductmanagement.domain;
+
+public class Category {
+}
